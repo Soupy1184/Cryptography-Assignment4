@@ -2,25 +2,50 @@ import java.util.ArrayList;
 import java.util.List;
 
 public interface Functions {
+    
+    public static String intToBinaryString(int n){
+        String string = Integer.toBinaryString(n);
+
+        return string;
+    }
+
+    //square and multiply algorithm
+    public static int squareMultiply(int base, int exponent){
+        int result = base;
+        String binaryExponent = intToBinaryString(exponent);
+
+        for (int i = 1; i < binaryExponent.length(); i++){
+            if (binaryExponent.charAt(i) == '1'){
+                result = (int) (Math.pow(result, 2) * base);
+            }
+            else{
+                result = (int) (Math.pow(result, 2));
+            }
+        }
+
+        return result;
+    }
+    
     // changes a phrase into an array of integers - working
     public static int[] alphabetToIntArray(String string) {
         string = string.toLowerCase();
         char[] stringArray = string.toCharArray();
         String alphabet = "abcdefghijklmnopqrstuvwxyz .,?()";
         char[] aplhaArray = alphabet.toCharArray();
-        int[] zSpace = new int[stringArray.length];
+        int[] array = new int[stringArray.length];
 
         for (int i = 0; i < stringArray.length; i++) {
             for (int j = 0; j < aplhaArray.length; j++) {
                 if (stringArray[i] == aplhaArray[j]) {
-                    zSpace[i] = j;
+                    array[i] = j;
                 }
             }
         }
 
-        return zSpace;
+        return array;
     }
 
+    //
     public static List<String> intArrayToBinaryString5(int[] array) {
         List<String> string = new ArrayList<String>();
         int count;
@@ -128,5 +153,11 @@ public interface Functions {
             string += list.get(i);
         }
         return string;
+    }
+
+    //gets a random number in a range
+    public static int getRandomNumberInRange(int min, int max) {
+        int result = (int) ((Math.random() * ((max - min) + 1)) + min);
+        return result;
     }
 }
