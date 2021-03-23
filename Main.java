@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class Main implements Functions {
+public class Main {
     public static void main(String[] args){
         String plaintext = "hello zach, its nice to work with you.";
         
