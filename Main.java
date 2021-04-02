@@ -18,6 +18,9 @@ public class Main {
         //authenticate common key
         alice.authenticate(key);
 
+        //uncomment this to see common key value for sake of assignment
+        // System.out.println("Common Key: " + alice.commonKey);
+
         //encryp using common key
         Encryption encryption = new Encryption(alice.commonKey, plaintext);
         System.out.println(encryption.getCiphertext());

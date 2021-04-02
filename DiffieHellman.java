@@ -3,7 +3,7 @@ import java.math.BigInteger;
 public class DiffieHellman implements Functions {
     int alpha;
     int p;
-    int secretKey;
+    private int secretKey;
     int commonKey;
 
     public DiffieHellman(int alpha, int p){
